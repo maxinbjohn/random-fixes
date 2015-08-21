@@ -1,0 +1,49 @@
+From e1d360f4372aa16d0ae5e6247e62f63d1d0aaf18 Mon Sep 17 00:00:00 2001
+From: "Maxin B. John" <maxin.john@enea.com>
+Date: Fri, 21 Aug 2015 16:33:20 +0200
+Subject: [PATCH] vim: update SRC_URI
+
+Update SRC_URI to point to ftp.vim.org instead of the repository
+in googlecode.com
+
+Signed-off-by: Maxin B. John <maxin.john@enea.com>
+---
+ .../vim/{vim-tiny_7.4.481.bb => vim-tiny_7.4.bb}              |  0
+ meta-oe/recipes-support/vim/{vim_7.4.481.bb => vim_7.4.bb}    | 11 ++++-------
+ 2 files changed, 4 insertions(+), 7 deletions(-)
+ rename meta-oe/recipes-support/vim/{vim-tiny_7.4.481.bb => vim-tiny_7.4.bb} (100%)
+ rename meta-oe/recipes-support/vim/{vim_7.4.481.bb => vim_7.4.bb} (93%)
+
+diff --git a/meta-oe/recipes-support/vim/vim-tiny_7.4.481.bb b/meta-oe/recipes-support/vim/vim-tiny_7.4.bb
+similarity index 100%
+rename from meta-oe/recipes-support/vim/vim-tiny_7.4.481.bb
+rename to meta-oe/recipes-support/vim/vim-tiny_7.4.bb
+diff --git a/meta-oe/recipes-support/vim/vim_7.4.481.bb b/meta-oe/recipes-support/vim/vim_7.4.bb
+similarity index 93%
+rename from meta-oe/recipes-support/vim/vim_7.4.481.bb
+rename to meta-oe/recipes-support/vim/vim_7.4.bb
+index afdea84..94c8910 100644
+--- a/meta-oe/recipes-support/vim/vim_7.4.481.bb
++++ b/meta-oe/recipes-support/vim/vim_7.4.bb
+@@ -6,14 +6,11 @@ RSUGGESTS_${PN} = "diffutils"
+ LICENSE = "vim"
+ LIC_FILES_CHKSUM = "file://../runtime/doc/uganda.txt;md5=b779e18be6ed77facc770691c967b8f8"
+ 
+-SRC_URI = "hg://vim.googlecode.com/hg/;protocol=https;module=vim \
+-           file://disable_acl_header_check.patch;patchdir=.. \
+-           file://vim-add-knob-whether-elf.h-are-checked.patch;patchdir=.. \
+-"
+-SRCREV = "v7-4-481"
+-
+-S = "${WORKDIR}/vim/src"
++SRC_URI = "ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2"
++SRC_URI[md5sum] = "607e135c559be642f210094ad023dc65"
++SRC_URI[sha256sum] = "d0f5a6d2c439f02d97fa21bd9121f4c5abb1f6cd8b5a79d3ca82867495734ade"
+ 
++S = "${WORKDIR}/vim74/src"
+ VIMDIR = "vim${@d.getVar('PV',1).split('.')[0]}${@d.getVar('PV',1).split('.')[1]}"
+ 
+ inherit autotools update-alternatives
+-- 
+1.9.1
+
