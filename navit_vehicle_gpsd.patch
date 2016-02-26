@@ -1,0 +1,11 @@
+diff -Naur navit-orig/navit/vehicle/gpsd/vehicle_gpsd.c navit/navit/vehicle/gpsd/vehicle_gpsd.c
+--- navit-orig/navit/vehicle/gpsd/vehicle_gpsd.c	2013-02-15 09:46:04.000000000 +0200
++++ navit/navit/vehicle/gpsd/vehicle_gpsd.c	2016-02-26 12:32:24.369673621 +0200
+@@ -127,7 +127,6 @@
+ #else
+                         for( i=0;i<data->satellites;i++) {
+ #endif
+-                               if (data->ss[i] > 0)
+                                         sats_signal++;
+                         }
+                 }

@@ -1,0 +1,12 @@
+diff -Naur navit-orig/navit/font/freetype/font_freetype.c navit/navit/font/freetype/font_freetype.c
+--- navit-orig/navit/font/freetype/font_freetype.c	2016-02-26 12:06:32.706072085 +0200
++++ navit/navit/font/freetype/font_freetype.c	2016-02-26 12:12:39.744483474 +0200
+@@ -32,7 +32,7 @@
+ #if USE_FRIBIDI
+ #include <fribidi.h>
+ #endif
+-#include <ftglyph.h>
++#include FT_GLYPH_H
+ #include "point.h"
+ #include "graphics.h"
+ #include "debug.h"
