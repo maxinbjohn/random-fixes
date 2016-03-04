@@ -1,0 +1,33 @@
+From 1c814b640d06ecc1f51d3ec45cc010b669243883 Mon Sep 17 00:00:00 2001
+From: "Maxin B. John" <maxin.john@intel.com>
+Date: Wed, 29 Feb 2012 13:33:54 +0200
+Subject: [PATCH] cross compile fix
+
+Fix cross build
+
+Signed-off-by: Maxin B. John <maxin.john@intel.com>
+---
+ Makefile.sa | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/Makefile.sa b/Makefile.sa
+index 24a16ca..c308f61 100644
+--- a/Makefile.sa
++++ b/Makefile.sa
+@@ -49,13 +49,10 @@ encode: encode.o
+ 
+ _precheck.c:	_autodata.c $(PRE) $(CHECK)
+ #	@echo "NOTE: _autodata.c has changed --> regenerate _precheck.c"
+-	./$(PRE)
+-	./$(CHECK)
+ #	@$(MAKE) $(STRINGS) $(KEYS)
+ 
+ _autodefs.h _autodata.c:	$(SPEC) $(LICFIX)
+ 	@echo "NOTE: GENSEARCHDATA takes 1-2 minutes to run"
+-	./$(LICFIX)
+ 
+ #
+ # Non "standard" preprocessing stuff ends here...
+-- 
+2.4.0
+
